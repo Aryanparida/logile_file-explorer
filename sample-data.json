@@ -1,0 +1,186 @@
+[
+  {
+    "id": 1,
+    "name": "src",
+    "parentId": null,
+    "type": "folder"
+  },
+  {
+    "id": 2,
+    "name": "public",
+    "parentId": null,
+    "type": "folder"
+  },
+  {
+    "id": 3,
+    "name": "node_modules",
+    "parentId": null,
+    "type": "folder"
+  },
+  {
+    "id": 4,
+    "name": "package.json",
+    "parentId": null,
+    "type": "file",
+    "size": 1024,
+    "content": "{\n  \"name\": \"logile\",\n  \"version\": \"1.0.0\",\n  \"description\": \"VS Code style file explorer\",\n  \"main\": \"src/main.jsx\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\"\n  },\n  \"dependencies\": {\n    \"react\": \"^18.2.0\",\n    \"react-dom\": \"^18.2.0\"\n  },\n  \"devDependencies\": {\n    \"@vitejs/plugin-react\": \"^4.0.0\",\n    \"vite\": \"^4.3.0\"\n  }\n}"
+  },
+  {
+    "id": 5,
+    "name": "README.md",
+    "parentId": null,
+    "type": "file",
+    "size": 2048,
+    "content": "# Logile - File Explorer\n\nA VS Code-style file explorer built with React and Vite.\n\n## Features\n\n- 📁 Hierarchical file tree view\n- 🔍 Search and filter files\n- ✏️ Inline rename functionality\n- 🗑️ Delete files and folders\n- 🎯 Drag and drop support\n- 📄 Code viewer for file content\n- ⌨️ Keyboard shortcuts\n- 🎨 Dark theme (VS Code style)\n\n## Getting Started\n\n```bash\nnpm install\nnpm run dev\n```"
+  },
+  {
+    "id": 6,
+    "name": "vite.config.js",
+    "parentId": null,
+    "type": "file",
+    "size": 512,
+    "content": "import { defineConfig } from 'vite'\nimport react from '@vitejs/plugin-react'\n\nexport default defineConfig({\n  plugins: [react()],\n  server: {\n    port: 5173,\n    open: true\n  }\n})"
+  },
+  {
+    "id": 7,
+    "name": ".gitignore",
+    "parentId": null,
+    "type": "file",
+    "size": 128,
+    "content": "node_modules/\ndist/\n*.log\n.env\n.DS_Store"
+  },
+  {
+    "id": 10,
+    "name": "components",
+    "parentId": 1,
+    "type": "folder"
+  },
+  {
+    "id": 11,
+    "name": "hooks",
+    "parentId": 1,
+    "type": "folder"
+  },
+  {
+    "id": 12,
+    "name": "styles",
+    "parentId": 1,
+    "type": "folder"
+  },
+  {
+    "id": 13,
+    "name": "App.jsx",
+    "parentId": 1,
+    "type": "file",
+    "size": 3072,
+    "content": "import { useState } from 'react';\nimport SearchBar from './components/SearchBar.jsx';\nimport Toolbar from './components/Toolbar.jsx';\nimport TreeView from './components/Tree/TreeView.jsx';\nimport CodeViewer from './components/CodeViewer.jsx';\nimport FileUploadModal from './components/FileUploadModal.jsx';\nimport { useTree } from './hooks/useTree.js';\nimport './styles/tree.css';\n\nexport default function App() {\n  const [uploadedData, setUploadedData] = useState(null);\n  const [showUploadModal, setShowUploadModal] = useState(!uploadedData);\n\n  // ... component logic\n}"
+  },
+  {
+    "id": 14,
+    "name": "main.jsx",
+    "parentId": 1,
+    "type": "file",
+    "size": 256,
+    "content": "import React from 'react'\nimport ReactDOM from 'react-dom/client'\nimport App from './App.jsx'\n\nReactDOM.createRoot(document.getElementById('root')).render(\n  <React.StrictMode>\n    <App />\n  </React.StrictMode>,\n)"
+  },
+  {
+    "id": 15,
+    "name": "index.css",
+    "parentId": 1,
+    "type": "file",
+    "size": 1536,
+    "content": "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nhtml, body, #root {\n  width: 100%;\n  height: 100%;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen';\n}"
+  },
+  {
+    "id": 20,
+    "name": "Header.jsx",
+    "parentId": 10,
+    "type": "file",
+    "size": 1024,
+    "content": "export default function Header() {\n  return (\n    <header className=\"header\">\n      <h1>File Explorer</h1>\n      <p>Navigate your project structure</p>\n    </header>\n  );\n}"
+  },
+  {
+    "id": 21,
+    "name": "Footer.jsx",
+    "parentId": 10,
+    "type": "file",
+    "size": 768,
+    "content": "export default function Footer() {\n  return (\n    <footer className=\"footer\">\n      <p>© 2024 Logile - VS Code Style Explorer</p>\n    </footer>\n  );\n}"
+  },
+  {
+    "id": 22,
+    "name": "Sidebar.jsx",
+    "parentId": 10,
+    "type": "file",
+    "size": 2048,
+    "content": "import { useState } from 'react';\n\nexport default function Sidebar() {\n  const [isOpen, setIsOpen] = useState(true);\n\n  const toggleSidebar = () => {\n    setIsOpen(!isOpen);\n  };\n\n  return (\n    <div className='sidebar'>\n      <nav>\n        <ul>\n          <li><a href=\"#explorer\">Explorer</a></li>\n        </ul>\n      </nav>\n    </div>\n  );\n}"
+  },
+  {
+    "id": 23,
+    "name": "Button",
+    "parentId": 10,
+    "type": "folder"
+  },
+  {
+    "id": 24,
+    "name": "Modal",
+    "parentId": 10,
+    "type": "folder"
+  },
+  {
+    "id": 30,
+    "name": "Button.jsx",
+    "parentId": 23,
+    "type": "file",
+    "size": 640,
+    "content": "export default function Button({ children, onClick, variant = 'primary' }) {\n  return (\n    <button className={`btn btn-${variant}`} onClick={onClick}>\n      {children}\n    </button>\n  );\n}"
+  },
+  {
+    "id": 31,
+    "name": "Button.css",
+    "parentId": 23,
+    "type": "file",
+    "size": 384,
+    "content": ".btn {\n  padding: 8px 16px;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n\n.btn-primary {\n  background-color: #0078d4;\n  color: white;\n}"
+  },
+  {
+    "id": 33,
+    "name": "Modal.jsx",
+    "parentId": 24,
+    "type": "file",
+    "size": 1280,
+    "content": "import { useState } from 'react';\n\nexport default function Modal({ title, children, onClose }) {\n  return (\n    <div className=\"modal-overlay\" onClick={onClose}>\n      <div className=\"modal-content\" onClick={(e) => e.stopPropagation()}>\n        <div className=\"modal-header\">\n          <h2>{title}</h2>\n          <button onClick={onClose}>×</button>\n        </div>\n        <div className=\"modal-body\">\n          {children}\n        </div>\n      </div>\n    </div>\n  );\n}"
+  },
+  {
+    "id": 40,
+    "name": "useAuth.js",
+    "parentId": 11,
+    "type": "file",
+    "size": 896,
+    "content": "import { useState, useCallback } from 'react';\n\nexport function useAuth() {\n  const [user, setUser] = useState(null);\n  const [loading, setLoading] = useState(false);\n\n  const login = useCallback(async (email, password) => {\n    setLoading(true);\n    try {\n      // API call here\n      setUser({ email });\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setLoading(false);\n    }\n  }, []);\n\n  return { user, loading, login };\n}"
+  },
+  {
+    "id": 41,
+    "name": "useFetch.js",
+    "parentId": 11,
+    "type": "file",
+    "size": 1024,
+    "content": "import { useState, useEffect } from 'react';\n\nexport function useFetch(url) {\n  const [data, setData] = useState(null);\n  const [loading, setLoading] = useState(true);\n\n  useEffect(() => {\n    fetch(url)\n      .then(res => res.json())\n      .then(data => {\n        setData(data);\n        setLoading(false);\n      })\n      .catch(err => {\n        console.error(err);\n        setLoading(false);\n      });\n  }, [url]);\n\n  return { data, loading };\n}"
+  },
+  {
+    "id": 50,
+    "name": "global.css",
+    "parentId": 12,
+    "type": "file",
+    "size": 2560,
+    "content": "/* Global Styles */\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  background-color: #f5f5f5;\n  color: #333;\n}\n\nbutton {\n  cursor: pointer;\n}"
+  },
+  {
+    "id": 51,
+    "name": "variables.css",
+    "parentId": 12,
+    "type": "file",
+    "size": 512,
+    "content": ":root {\n  --primary-color: #0078d4;\n  --secondary-color: #6c757d;\n  --success-color: #28a745;\n  --danger-color: #dc3545;\n  --warning-color: #ffc107;\n  --spacing-xs: 4px;\n  --spacing-sm: 8px;\n  --spacing-md: 16px;\n}"
+  }
+]
